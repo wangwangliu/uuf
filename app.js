@@ -68,7 +68,8 @@ const routes = [{
 routes.forEach((item) => {
     router.get(item.path, function(req, res) {
         var paramsid = req.params.id || 0;
-        item.data = assign({}, item.data, { paramsid: paramsid })
+        item.data = assign({}, item.data, { paramsid: paramsid });
+
         res.render(item.html, item.data);
     })
 })
