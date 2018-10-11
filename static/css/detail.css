@@ -1,0 +1,138 @@
+.detail-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-back {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 46px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.detail-content {
+  display: flex;
+}
+
+.detail-preview {
+  flex: 1;
+  padding-right: 39px;
+}
+
+.detail-info {
+  flex: 1;
+  padding-left: 39px;
+}
+
+.detail-gallery-top {
+  width: 529px;
+	height: 529px;
+	border: solid 3px #000000;
+}
+
+.detail-gallery-thumbs {
+  margin: 16px auto;
+  width: 529px;
+  height: 70px;
+}
+
+.detail-gallery-top .swiper-slide {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.detail-gallery-thumbs .swiper-slide {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: solid 3px transparent;
+  box-sizing: border-box;
+}
+
+.detail-gallery-thumbs .swiper-slide-thumb-active {
+  background-color: white;
+  border-color: black;
+}
+
+.detail-note {
+  font-size: 25px;
+}
+
+.detail-product-name {
+  font-size: 29px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 35px;
+}
+
+.detail-product-feature {
+  margin-bottom: 40px;
+}
+
+.detail-product-feature-name {
+  display: block;
+  font-size: 30px;
+  line-height: 42px;
+  border-bottom: solid 3px black;
+  margin-bottom: 16px;
+}
+
+.detail-product-feature-list {
+  padding-left: 20px;
+}
+
+.detail-product-feature-list li {
+  position: relative;
+  list-style-type: none;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.detail-product-feature-list li:before {
+  content: '.';
+  position: absolute;
+  top: -5px;
+  left: -10px;
+}
+
+.detail-product-color-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-product-color {
+	width: 91px;
+  height: 40px;
+  box-sizing: border-box;
+  border: solid 1px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.detail-product-qrcode {
+  display: flex;
+}
+
+.detail-product-qrcode-block {
+  margin-right: 30px;
+}
+
+.detail-product-qrcode-img {
+  width: 151px;
+  height: 161px;
+}
+
+.detail-product-qrcode-link {
+  font-size: 25px;
+  height: 42px;
+  line-height: 42px;
+  color: white;
+  background-color: #d20a0a;
+  text-align: center;
+  cursor: pointer;
+}
