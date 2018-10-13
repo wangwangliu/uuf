@@ -22,7 +22,6 @@ $('.product-nav-content').click(function (event) {
 
 function bindDetail(){
   $('.product-item').click(function () {
-    console.log($(this).attr("data-detail"))
     document.location.href = "detail.html"
   });
 }
@@ -31,12 +30,22 @@ function bindDetail(){
 $(function(){
   var pathname = window.location.pathname;
   var id = pathname.substr(pathname.length-1, pathname.length);
+  var initList = false;
   $('.product-nav-title').each(function(i,n){
     if(id === $(n).attr("data-id")){
       $(".product-title").text($(n).text());
-      loadProduct($(n).attr("file-name"))
+      loadProduct($(n).attr("file-name"));
+      initList = true;
     }
-  })
+  });
+  if (!initList) {
+    $('.product-nav-content').each(function(i,n){
+    if(id === $(n).attr("data-id")){
+      $(".product-title").text($(n).text());
+      loadProduct($(n).attr("file-name"));    
+    }
+    });
+  }
 });
 
 function loadProduct(fileName){
