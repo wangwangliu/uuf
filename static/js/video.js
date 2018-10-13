@@ -25,11 +25,11 @@ $(function () {
   var pathname = window.location.pathname;
   var id = pathname.substr(pathname.length-1, pathname.length);
   if (id == 1 ) {
-    loadVideo("UFC-Video-Product-All.json");
+    loadVideo("UFC-Video-Product.json");
   }else if(id == 2){
-    loadVideo("UFC-Video-Category-All.json");
+    loadVideo("UFC-Video-Teach.json");
   }else if(id == 3){
-    loadVideo("UFC-Video-Category-All.json");
+    loadVideo("UFC-Video-Storys.json");
   }
 
 });

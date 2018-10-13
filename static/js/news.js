@@ -31,7 +31,7 @@ function loadActivity(){
           var str='';
           $.each(data,function(i,n){
               str+='<div class="news-item" data-url="'+n.url+'">';
-              str+='<img class="news-item-img" src="'+ (rootUrl + n.fileImg) +'" />';
+              str+='<img class="news-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
               str+='<div class="news-item-intro">'+ n.title +'</div>';
               str+="</div>";
           });
@@ -54,7 +54,7 @@ function loadEvent(){
           var str='';
           $.each(data,function(i,n){
               str+='<div class="news-item">';
-              str+='<img class="news-item-img" src="'+ (rootUrl + n.fileImg) +'" />';
+              str+='<img class="news-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
               str+='<div class="news-item-intro">'+ n.title +'</div>';
               str+="</div>";
           });
@@ -73,7 +73,7 @@ function loadProduct(){
           var str='';
           $.each(data,function(i,n){
               str+='<div class="news-item" data-url="'+n.url+'">';
-              str+='<img class="news-item-img" src="'+ (rootUrl + n.fileImg) +'" />';
+              str+='<img class="news-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
               str+='<div class="news-item-intro">'+ n.title +'</div>';
               str+="</div>";
           });
