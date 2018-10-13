@@ -15,6 +15,7 @@ $('.product-nav-content').click(function (event) {
 
 function bindDetail(){
   $('.product-item').click(function () {
+    console.log($(this).attr("data-detail"))
     document.location.href = "detail.html"
   });
 }
@@ -43,7 +44,7 @@ function loadProduct(fileName){
            }
           var str='';
           $.each(data,function(i,n){
-              str+='<div class="product-item" data=>';
+              str+='<div class="product-item" data-detail="+n+">';
               str+='<img class="product-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
               str+='<div class="product-item-intro">'+ n.title +'</div>';
               str+="</div>";
