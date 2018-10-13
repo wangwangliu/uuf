@@ -2,7 +2,7 @@ var express = require('express');
 const path = require('path');
 var app = express();
 var assign = require("object.assign");
-var soap = require('soap');
+// var soap = require('soap');
 
 // var ejs = require('ejs');
 const router = express.Router();
