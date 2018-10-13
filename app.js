@@ -2,16 +2,25 @@ var express = require('express');
 const path = require('path');
 var app = express();
 var assign = require("object.assign");
+var soap = require('soap');
+
 // var ejs = require('ejs');
 const router = express.Router();
 app.use(express.static(path.join(__dirname, 'static')))
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
+
 // console.log(path.join(__dirname, 'views'));
 // app.set('views', path.join(__dirname, 'views'));
 // app.engine('.html', ejs.__express);
 // app.set('view engine', 'html');
+
+const api = `http://120.55.41.76/ufc-data/data/`;
+
+var UFCProductGloves = `${api}UFC-Product-Gloves.json`;
+
+
 
 const routes = [{
         path: '/',
@@ -39,7 +48,7 @@ const routes = [{
         data: {
             act: 2,
             data: {
-                title: ['认识UFC', 'UFC名人', 'UFC故事', 'UFC赛事']
+                title: ['官方视频', '品牌宣传', '教学视频', '品牌故事']
             }
         }
     },
@@ -49,13 +58,23 @@ const routes = [{
         data: {
             act: 3,
             data: {
-                title: ['最新资讯']
+                title: ['认识UFC', 'UFC名人', 'UFC故事', 'UFC赛事']
             }
         }
     },
     {
         path: '/news/:id',
         html: 'news',
+        data: {
+            act: 4,
+            data: {
+                title: ['最新资讯', "最新活动", "最新赛事", "最新产品"]
+            }
+        }
+    },
+    {
+        path: '/detail/:id',
+        html: 'detail',
         data: {
             act: 4,
             data: {
