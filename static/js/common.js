@@ -1,15 +1,30 @@
 $(function() {
+    var ti = null,
+        flag = true;
     $(".header-nav").hover(function(event) {
         $('.header-nav-menu').removeClass("act")
         $(this).find('.header-nav-menu').addClass("act");
         return false;
     }, function(event) {
-        $(this).removeClass("act")
+        var _this = $(this)
+        setTimeout(function() {
+            if (flag) {
+                _this.find('.header-nav-menu').removeClass("act")
+            }
+        }, 500)
+
     });
     $(".header-nav-menu").hover(function(event) {
-        // $(event.target).addClass("act")
+        flag = false;
+        var _this = $(this);
+        ti = setInterval(function() {
+            _this.addClass("act")
+        }, 0)
+
         // return false;
     }, function(event) {
+        flag = true;
+        clearInterval(ti);
         $(this).removeClass("act")
     })
     $(".header-nav-menu-item").click(function(event) {
