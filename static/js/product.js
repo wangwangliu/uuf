@@ -10,6 +10,13 @@ $('.product-nav-title').click(function (event) {
 $('.product-nav-content').click(function (event) {
   var event = event || e;
   $(".product-title").text($(this).text());
+  var fileName = $(this).attr("file-name");
+  var dataId = $(this).attr("data-id");
+  if (!dataId) {
+    $(".product-box").html("暂无符合的产品");
+    return;
+  }
+  loadProduct(fileName);
 });
 
 
@@ -25,7 +32,7 @@ $(function(){
   var pathname = window.location.pathname;
   var id = pathname.substr(pathname.length-1, pathname.length);
   $('.product-nav-title').each(function(i,n){
-    if(id === $(n).attr("data")){
+    if(id === $(n).attr("data-id")){
       $(".product-title").text($(n).text());
       loadProduct($(n).attr("file-name"))
     }
