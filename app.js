@@ -33,12 +33,14 @@ const routes = [{
         }
     },
     {
-        path: '/product/:id?',
+        path: '/product/:id/:type?',
         html: 'product',
         data: {
             act: 1,
             data: {
-                title: ['UFC产品', '拳击手套', '护具', '健身器材', 'UFC产品', "其他"]
+                title: ['UFC产品', '拳击手套', '护具', '健身器材', 'UFC产品', "其他"],
+                subtitle: { "1": ["25周年纪念款主推产品"], "2": ['沙袋', '绷带'] }
+
             }
         }
     },
@@ -87,7 +89,12 @@ const routes = [{
 routes.forEach((item) => {
     router.get(item.path, function(req, res) {
         var paramsid = req.params.id || 0;
-        item.data = assign({}, item.data, { paramsid: paramsid });
+        var paramstype = req.params.type;
+        var name = null;
+        if (typeof(req.params.type) != 'undefined') {
+            name = item.data.data.subtitle[paramsid][req.params.type]
+        }
+        item.data = assign({}, item.data, { hdmain: `${req.protocol}://${req.headers.host}`, paramsid: paramsid, name: name });
 
         res.render(item.html, item.data);
     })
