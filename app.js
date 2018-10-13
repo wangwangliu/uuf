@@ -38,9 +38,8 @@ const routes = [{
         data: {
             act: 1,
             data: {
-                title: ['UFC产品', '拳击手套', '护具', '健身器材', 'UFC产品', "其他"],
-                subtitle: { "1": ["25周年纪念款主推产品"], "2": ['沙袋', '绷带'] }
-
+                title: ['UFC产品', '拳击手套', '护具', '健身器材', "其他", "25周年纪念款", "主推产品", '沙袋', '绷带'],
+                // subtitle: { "1": ["25周年纪念款主推产品"], "2": ['沙袋', '绷带'] }
             }
         }
     },
@@ -75,12 +74,12 @@ const routes = [{
         }
     },
     {
-        path: '/detail/:id',
+        path: '/pdetail/:id/',
         html: 'detail',
         data: {
-            act: 4,
+            act: 1,
             data: {
-                title: ['最新资讯', "最新活动", "最新赛事", "最新产品"]
+                title: ['']
             }
         }
     },
@@ -89,12 +88,7 @@ const routes = [{
 routes.forEach((item) => {
     router.get(item.path, function(req, res) {
         var paramsid = req.params.id || 0;
-        var paramstype = req.params.type;
-        var name = null;
-        if (typeof(req.params.type) != 'undefined') {
-            name = item.data.data.subtitle[paramsid][req.params.type]
-        }
-        item.data = assign({}, item.data, { hdmain: `${req.protocol}://${req.headers.host}`, paramsid: paramsid, name: name });
+        item.data = assign({}, item.data, { hdmain: `${req.protocol}://${req.headers.host}`, paramsid: paramsid });
 
         res.render(item.html, item.data);
     })

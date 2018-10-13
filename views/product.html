@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        <%if(name){%>
-            <%=name%>
-                <%}else{%>
-                    <%=data['title'][paramsid]%>
-                        <%}%>
+        <%=data['title'][paramsid]%>
     </title>
     <link rel="stylesheet" href="<%=hdmain%>/css/common.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/product.css">
@@ -24,7 +20,8 @@
                 <div class="left">
                     <div class="product-nav">
                         <div class="product-nav-title" data="1" file-name="UFC-Product-Gloves.json">拳击手套</div>
-                        <div class="product-nav-content">25周年纪念款主推产品</div>
+                        <div class="product-nav-content">25周年纪念款</div>
+                        <div class="product-nav-content">主推产品</div>
                     </div>
                     <div class="product-nav">
                         <div class="product-nav-title" data="2" file-name="UFC-Product-Protective.json">护具</div>
