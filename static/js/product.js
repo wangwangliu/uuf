@@ -4,7 +4,8 @@ $('.product-nav-title').click(function (event) {
   var event = event || e;
   $(".product-title").text($(this).text());
   var fileName = $(this).attr("file-name");
-  loadProduct(fileName);
+  var dataId = $(this).attr("data-id");
+  loadProduct(fileName, dataId);
 });
 
 $('.product-nav-content').click(function (event) {
@@ -16,13 +17,15 @@ $('.product-nav-content').click(function (event) {
     $(".product-box").html("暂无符合的产品");
     return;
   }
-  loadProduct(fileName);
+  loadProduct(fileName, dataId);
 });
 
 
 function bindDetail(){
   $('.product-item').click(function () {
-    document.location.href = "detail.html"
+    var productId = $(this).attr("data-product-id");
+    var pid = $(this).attr("data-pid");
+    document.location.href = "../pdetail/"+productId+"?pid="+pid;
   });
 }
 
@@ -34,7 +37,7 @@ $(function(){
   $('.product-nav-title').each(function(i,n){
     if(id === $(n).attr("data-id")){
       $(".product-title").text($(n).text());
-      loadProduct($(n).attr("file-name"));
+      loadProduct($(n).attr("file-name"), id);
       initList = true;
     }
   });
@@ -42,13 +45,13 @@ $(function(){
     $('.product-nav-content').each(function(i,n){
     if(id === $(n).attr("data-id")){
       $(".product-title").text($(n).text());
-      loadProduct($(n).attr("file-name"));    
+      loadProduct($(n).attr("file-name"), id);    
     }
     });
   }
 });
 
-function loadProduct(fileName){
+function loadProduct(fileName, pid){
     $.ajax({
       type:"GET",
       url:rootUrl+"/ufc-data/data/"+fileName,
@@ -60,7 +63,7 @@ function loadProduct(fileName){
            }
           var str='';
           $.each(data,function(i,n){
-              str+='<div class="product-item" data-detail="+n+">';
+              str+='<div class="product-item" data-pid="'+pid+'" data-product-id="'+n.id+'">';
               str+='<img class="product-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
               str+='<div class="product-item-intro">'+ n.title +'</div>';
               str+="</div>";
