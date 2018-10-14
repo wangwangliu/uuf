@@ -45,22 +45,32 @@ function loadActivity(){
  * 最新赛事用视频播放的样式
  */
 function loadEvent(){
-
+    var videoHtml ='<div class="swiper-container video-gallery-top"></div>';
+      videoHtml+='<div class="swiper-container video-gallery-thumbs">';
+      videoHtml+='<div class="swiper-button-next">下一页 >></div>';
+      videoHtml+='<div class="swiper-button-prev"><< 上一页</div>';
+      videoHtml+='</div>';
+ $(".news-content").html(videoHtml);
   $.ajax({
-      type:"GET",
-      url:rootUrl+"/ufc-data/data/UFC-Newest-Event.json",
-      dataType: "json",
-      success: function(data){
-          var str='';
-          $.each(data,function(i,n){
-              str+='<div class="news-item">';
-              str+='<img class="news-item-img" src="'+ (rootUrl + n.mainImg) +'" />';
-              str+='<div class="news-item-intro">'+ n.title +'</div>';
-              str+="</div>";
-          });
-          $(".news-content").html(str);
-      }
-  });
+    type:"GET",
+    url:rootUrl+"/ufc-data/data/UFC-Newest-Event.json",
+    dataType: "json",
+    success: function(data){
+      if(data.length == 0){
+          $(".video-gallery-top").html("暂无符合的数据");
+          return;
+         }
+        var str='', listStr='';
+        $.each(data,function(i,n){
+            str+='<div class="swiper-slide"><video src="'+(rootUrl + n.url)+'" width="100%" height="100%" controls>您的浏览器不支持video标签</video></div>';
+        
+            listStr+='<div class="swiper-slide" style="width:180px;background-image:url('+(rootUrl + n.mainImg)+');background-size: 100% 100%"></div>';
+        });
+        $(".video-gallery-top").html('<div class="swiper-wrapper">'+str+"</div>");
+        $(".video-gallery-thumbs").append('<div class="swiper-wrapper">'+listStr+"</div>");
+        initVideo();
+    }
+});
 }
 
 
@@ -80,5 +90,29 @@ function loadProduct(){
           $(".news-content").html(str);
           bindDetail();
       }
+  });
+}
+
+function initVideo(){
+  var galleryThumbs = new Swiper('.video-gallery-thumbs', {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    loop: false,
+    freeMode: true,
+    loopedSlides: 4, //looped slides should be the same
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+  });
+  var galleryTop = new Swiper('.video-gallery-top', {
+    spaceBetween: 0,
+    loop: false,
+    loopedSlides: 4, //looped slides should be the same
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+      swiper: galleryThumbs,
+    },
   });
 }
