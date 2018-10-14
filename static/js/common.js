@@ -79,3 +79,7 @@ function cutstr(str, len) {
         return str;
     }
 }
+
+function ggoLink(url) {
+    location.href = url;
+}

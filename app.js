@@ -94,12 +94,12 @@ const routes = [{
         }
     },
     {
-        path: '/qa',
-        html: 'qa',
+        path: '/channel',
+        html: 'channel',
         data: {
             act: 0,
             data: {
-                title: ['电商常见问题']
+                title: ['购买渠道']
             }
         }
     },
