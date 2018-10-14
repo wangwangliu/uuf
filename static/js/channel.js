@@ -9,13 +9,28 @@ $(function() {
 });
 
 function loadWebsite(){
-	var str = "";
+	var str = "暂无数据";
 
 	$(".know-content").html(str);
 }
 
 function loadChannel(){
 	var str = "";
+	str += '<div class="know-item-event">';
+    str += '<img class="know-item-img-event" src="../images/logo-jd.png" />';
+    str += "</div>";
+
+    str += '<div class="know-item-event">';
+    str += '<img class="know-item-img-event" src="../images/qrode-jd.png" />';
+    str += "</div>";
+
+    str += '<div class="know-item-event">';
+    str += '<img class="know-item-img-event" src="../images/logo-tmall.png" />';
+    str += "</div>";
+
+    str += '<div class="know-item-event">';
+    str += '<img class="know-item-img-event" src="../images/qrode-tmall.png" />';
+    str += "</div>";
 
 	$(".know-content").html(str);
 }
