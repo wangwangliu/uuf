@@ -83,6 +83,26 @@ const routes = [{
             }
         }
     },
+    {
+        path: '/qa',
+        html: 'qa',
+        data: {
+            act: 0,
+            data: {
+                title: ['电商常见问题']
+            }
+        }
+    },
+    {
+        path: '/channel',
+        html: 'channel',
+        data: {
+            act: 0,
+            data: {
+                title: ['购买渠道']
+            }
+        }
+    },
 ];
 
 routes.forEach((item) => {
