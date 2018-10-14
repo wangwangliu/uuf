@@ -10,7 +10,7 @@
     </title>
     <link rel="stylesheet" href="<%=hdmain%>/css/swiper.min.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/common.css">
-    <link rel="stylesheet" href="<%=hdmain%>/css/video.css">
+    <link rel="stylesheet" href="<%=hdmain%>/css/know.css">
     <script src="<%=hdmain%>/js/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -21,21 +21,24 @@
                 <div class="video-box">
                     <div class="video-content">
                         <div class="video-content-title">
-                            <span class="video-title">产品宣传</span>
-                            <span class="video-note">周年纪念款 | 新品</span>
+                            <span class="video-title <%if(paramsid==2){%> act<%}%>" onclick="golink('/know/2')">UFC故事</span>
+                            <span class="video-title <%if(paramsid==1){%> act<%}%>" onclick="golink('/know/1')">UFC名人</span>
+                            <span class="video-title <%if(paramsid==3){%> act<%}%>" onclick="golink('/know/3')">UFC赛事</span>
+                            <!-- <span class="video-note">周年纪念款 | 新品</span> -->
                         </div>
-                        <div class="video-preview" style="background-image:url(images/video-bg.png);background-size: 100% 100%">
+                        <div class="video-preview" style="<%if(paramsid==2){%>min-height:700px;<%}%><%if(paramsid==1){%>min-height:1000px;<%}%><%if(paramsid==3){%>min-height:1000px;<%}%>background-image:url(<%=hdmain%>/images/video-bg.png);background-position:center center;background-repeat:no-repeat;">
 
                             <div class="know-content">
 
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            var hdomain = "<%=hdmain%>";
+        </script>
         <%include footer.html %>
             <script type="text/javascript" src="<%=hdmain%>/js/know.js"></script>
 </body>

@@ -20,7 +20,7 @@ body {
 
 .header-wrapper {
     height: 100%;
-    max-width: 1032px;
+    max-width: 1130px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -83,7 +83,7 @@ body {
 
 .content {
     min-height: calc(100vh - 476px);
-    margin-top: 145px;
+    margin-top: 180px;
     margin-bottom: 90px;
 }
 
@@ -97,7 +97,7 @@ body {
 }
 
 .footer-content {
-    width: 1032px;
+    width: 1130px;
     display: flex;
     justify-content: space-between;
     color: #FFF;

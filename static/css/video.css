@@ -3,14 +3,14 @@
 }
 
 .video-gallery-top {
-    width: 1069px;
+    width: 1130px;
     height: 599px;
     border: solid 3px #000000;
 }
 
 .video-gallery-thumbs {
     margin: 16px auto;
-    width: 1069px;
+    width: 1130px;
     height: 140px;
     padding-bottom: 40px;
 }
@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.3);
-    border: solid 3px transparent;
+    /* border: solid 3px transparent; */
     box-sizing: border-box;
 }
 
@@ -46,21 +46,22 @@
 }
 
 .swiper-button-next {
-    left: 1000px;
+    /* left: 1000px; */
+    right: 0 !important
 }
 
 .video-content-title {
-    width: 1069px;
+    width: 1130px;
     margin: 20px auto;
 }
 
 .video-title {
-    font-size: 25px;
+    font-size: 22px;
     display: inline-block;
     margin-right: 20px
 }
 
 .video-note {
-    font-size: 25px;
+    font-size: 20px;
     display: inline-block;
 }
