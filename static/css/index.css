@@ -102,15 +102,14 @@
 
 .content-pics {
     text-align: center;
-    padding: 45px 0 0;
+    padding: 45px 0 0 0;
     background: rgba(0, 0, 0, 0.6);
 }
 
 .content-pics-wrapper {
     display: block;
     clear: both;
-    overflow: hidden;
-    width: 1090px;
+    width: 1130px;
     margin: 0 auto;
 }
 

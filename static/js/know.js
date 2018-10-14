@@ -56,9 +56,9 @@ function loadEvent() {
         success: function(data) {
             var str = '';
             $.each(data, function(i, n) {
-                str += '<div class="know-item" data-url="' + n.url + '">';
-                str += '<img class="know-item-img" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="know-item-intro">' + n.title + '</div>';
+                str += '<div class="know-item-event" data-url="' + n.url + '">';
+                str += '<img class="know-item-img-event" src="' + (rootUrl + n.mainImg) + '" />';
+                str += '<div class="know-item-intro-event">' + cutstr(n.title, 120) + '<a href="' + n.url + '">   >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
             $(".know-content").html(str);
@@ -115,7 +115,7 @@ function loadStorys() {
             $.each(arr, function(i, n) {
                 str += '<div class="know-item1"  data-url="' + n.url + '">';
                 str += '<img class="know-item-img2" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + n.url + '"> >>阅读全文</a>' + '</div>';
+                str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + n.url + '">  >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
             str += "</div>"

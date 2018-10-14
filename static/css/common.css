@@ -9,6 +9,18 @@ body {
     flex-direction: column;
 }
 
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.clearfix {
+    *+height: 1%;
+}
+
 .header {
     position: fixed;
     width: 100%;
@@ -117,4 +129,9 @@ body {
 
 .footer-item-content {
     font-size: 14px;
+}
+
+.content-pics-wrapper img:hover {
+    transform: scale(1.1);
+    transition: all 0.6s;
 }

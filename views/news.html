@@ -10,7 +10,7 @@
     </title>
     <link rel="stylesheet" href="<%=hdmain%>/css/swiper.min.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/common.css">
-    <link rel="stylesheet" href="<%=hdmain%>/css/video.css">
+    <link rel="stylesheet" href="<%=hdmain%>/css/know.css">
     <script src="<%=hdmain%>/js/jquery-3.3.1.min.js"></script>
     <script src="<%=hdmain%>/js/swiper.min.js"></script>
 </head>
@@ -22,8 +22,10 @@
                 <div class="video-box">
                     <div class="video-content">
                         <div class="video-content-title">
-                            <span class="video-title">产品宣传</span>
-                            <span class="video-note">周年纪念款 | 新品</span>
+                            <span class="video-title <%if(paramsid==1){%> act<%}%>" onclick="golink('/news/1')">最新活动</span>
+                            <span class="video-title <%if(paramsid==2){%> act<%}%>" onclick="golink('/news/2')">最新赛事</span>
+                            <span class="video-title <%if(paramsid==3){%> act<%}%>" onclick="golink('/news/3')">最新产品</span>
+                            <!-- <span class="video-note">周年纪念款 | 新品</span> -->
                         </div>
                         <div class="video-preview" style="min-height:1000px;background-image:url(<%=hdmain%>/images/video-bg.png);background-position: center center;background-repeat: no-repeat;">
 
