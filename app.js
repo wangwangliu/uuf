@@ -84,7 +84,7 @@ const routes = [{
         }
     },
     {
-        path: '/qa',
+        path: '/qa/:id?',
         html: 'qa',
         data: {
             act: 0,
@@ -94,7 +94,7 @@ const routes = [{
         }
     },
     {
-        path: '/channel',
+        path: '/channel/:id?',
         html: 'channel',
         data: {
             act: 0,
