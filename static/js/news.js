@@ -1,4 +1,9 @@
 var rootUrl = "http://120.55.41.76";
+var loopIndex = 0;
+var UFCKnowStory = [];
+var loadingUrl = Url.parseQuery().qurl;
+var logPath = location.pathname;
+
 $(function() {
     var pathname = window.location.pathname;
     var id = pathname.substr(pathname.length - 1, pathname.length);
@@ -25,18 +30,34 @@ function loadActivity() {
         dataType: "json",
         success: function(data) {
             if (data.length == 0) {
-                $(".news-content").text("敬请期待");
+                $(".know-content").text("敬请期待");
                 return;
             }
-            var str = '';
-            $.each(data, function(i, n) {
-                str += '<div class="news-item" data-url="' + n.url + '">';
-                str += '<img class="news-item-img" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="news-item-intro">' + n.title + '</div>';
+            if (loadingUrl) {
+                $(".know-content").load(rootUrl + ddecodeURIComponent(loadingUrl), function() {
+                    $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                });
+
+                return;
+            }
+            var str = '<div class="img-box">';
+            UFCKnowStory = data;
+            loopIndex = 0;
+            var arr = []
+            arr.push(data[0]);
+            $.each(arr, function(i, n) {
+                str += '<div class="know-item1"  data-url="' + n.url + '">';
+                str += '<img class="know-item-img2" src="' + (rootUrl + n.mainImg) + '" />';
+                str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + logPath + '?qurl=' + dencodeURIComponent(n.url) + '">   >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
-            $(".news-content").html(str);
-            bindDetail();
+            str += "</div>"
+            var l = hdomain + "/images/left.png";
+            var r = hdomain + "/images/right.png";
+            var rl = '<div class="leftp"><img src="' + l + '"></div><div class="rightp"><img src="' + r + '"></div>';
+            $(".know-content").html(str + rl);
+            loopImg();
+            // bindDetail();
         }
     });
 }
@@ -50,7 +71,7 @@ function loadEvent() {
     videoHtml += '<div class="swiper-button-next">下一页 >></div>';
     videoHtml += '<div class="swiper-button-prev"><< 上一页</div>';
     videoHtml += '</div>';
-    $(".news-content").html(videoHtml);
+    $(".know-content").html(videoHtml);
     $.ajax({
         type: "GET",
         url: rootUrl + "/ufc-data/data/UFC-Newest-Event.json",
@@ -82,14 +103,21 @@ function loadProduct() {
         dataType: "json",
         success: function(data) {
             var str = '';
+            if (loadingUrl) {
+                $(".know-content").load(rootUrl + ddecodeURIComponent(loadingUrl), function() {
+                    $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                });
+                // $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                return;
+            }
+            var str = '';
             $.each(data, function(i, n) {
-                str += '<div class="news-item" data-url="' + n.url + '">';
-                str += '<img class="news-item-img" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="news-item-intro">' + n.title + '</div>';
+                str += '<div class="know-item-event" data-url="' + n.url + '">';
+                str += '<img class="know-item-img-event" src="' + (rootUrl + n.mainImg) + '" />';
+                str += '<div class="know-item-intro-event">' + cutstr(n.title, 120) + '<a href="' + logPath + '?qurl=' + dencodeURIComponent(n.url) + '">   >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
-            $(".news-content").html(str);
-            bindDetail();
+            $(".know-content").html(str);
         }
     });
 }
@@ -116,6 +144,42 @@ function initVideo() {
             swiper: galleryThumbs,
         },
     });
+}
+
+function loopImg() {
+    var leftp = $('.leftp>img'),
+        rightp = $('.rightp>img'),
+        UFCKnowStoryLen = UFCKnowStory.length;
+    leftp.click(() => {
+        if (loopIndex == 0) {
+            loopIndex = UFCKnowStoryLen - 1;
+        } else {
+            loopIndex--;
+        }
+        $(".img-box").html(tpl(UFCKnowStory, loopIndex));
+    });
+    rightp.click(() => {
+        if (loopIndex == (UFCKnowStoryLen - 1)) {
+            loopIndex = 0;
+        } else {
+            loopIndex++;
+        }
+        $(".img-box").html(tpl(UFCKnowStory, loopIndex));
+    })
+}
+
+function tpl(data, index) {
+    var str = '';
+    var arr = []
+    arr.push(data[0]);
+    $.each(arr, function(i, n) {
+        str += '<div class="know-item1"  data-url="' + n.url + '">';
+        str += '<img class="know-item-img2" src="' + (rootUrl + n.mainImg) + '" />';
+        str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + n.url + '"> >>阅读全文</a>' + '</div>';
+        str += "</div>";
+    });
+
+    return str
 }
 
 function golink(url) {

@@ -23,8 +23,16 @@
                 <div class="video-box">
                     <div class="video-content">
                         <div class="video-content-title">
-                            <span class="video-title">产品宣传</span>
-                            <span class="video-note">周年纪念款 | 新品</span>
+                            <%if(paramsid==1){%>
+                                <span class="video-title">产品宣传</span>
+                                <%}%>
+                                    <%if(paramsid==2){%>
+                                        <span class="video-title">教学视频</span>
+                                        <%}%>
+                                            <%if(paramsid==3){%>
+                                                <span class="video-title">品牌故事</span>
+                                                <%}%>
+                                                    <span class="video-note">周年纪念款 | 新品</span>
                         </div>
                         <div class="video-preview" style="min-height:1000px;background-image:url(<%=hdmain%>/images/video-bg.png);background-position: center center;background-repeat: no-repeat;">
                             <div class="swiper-container video-gallery-top">

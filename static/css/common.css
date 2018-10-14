@@ -130,6 +130,7 @@ body {
 
 .footer-item-content {
     font-size: 14px;
+    cursor: pointer;
 }
 
 .content-pics-wrapper img:hover {
