@@ -5,7 +5,8 @@ $('.product-nav-title').click(function (event) {
   $(".product-title").text($(this).text());
   var fileName = $(this).attr("file-name");
   var dataId = $(this).attr("data-id");
-  loadProduct(fileName, dataId);
+ // loadProduct(fileName, dataId);
+  document.location.href = "/product/"+dataId;
 });
 
 $('.product-nav-content').click(function (event) {
@@ -17,7 +18,8 @@ $('.product-nav-content').click(function (event) {
     $(".product-box").html("暂无符合的产品");
     return;
   }
-  loadProduct(fileName, dataId);
+  //loadProduct(fileName, dataId);
+  document.location.href = "/product/"+dataId;
 });
 
 
