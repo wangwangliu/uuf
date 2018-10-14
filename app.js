@@ -83,6 +83,26 @@ const routes = [{
             }
         }
     },
+    {
+        path: '/qa',
+        html: 'qa',
+        data: {
+            act: 0,
+            data: {
+                title: ['电商常见问题']
+            }
+        }
+    },
+    {
+        path: '/qa',
+        html: 'qa',
+        data: {
+            act: 0,
+            data: {
+                title: ['电商常见问题']
+            }
+        }
+    },
 ];
 
 routes.forEach((item) => {
