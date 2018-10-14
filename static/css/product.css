@@ -50,6 +50,7 @@
     height: 300px;
     margin: 30px;
     text-align: center;
+    cursor: pointer;
 }
 
 .product-item-img {
