@@ -1,6 +1,25 @@
 var rootUrl = "http://120.55.41.76";
 var loopIndex = 0;
 var UFCKnowStory = [];
+var loadingUrl = Url.parseQuery().qurl;
+var logPath = location.pathname;
+
+
+function dencodeURIComponent(url) {
+    if (!url) {
+        return '';
+    }
+    url = url.split('.')[0];
+    return encodeURIComponent(url)
+}
+
+function ddecodeURIComponent(url) {
+    if (!url) {
+        return '';
+    }
+    return decodeURIComponent(url) + '.html'
+}
+
 $(function() {
     var pathname = window.location.pathname;
     var id = pathname.substr(pathname.length - 1, pathname.length);
@@ -54,15 +73,22 @@ function loadEvent() {
         url: rootUrl + "/ufc-data/data/UFC-Know-Event.json",
         dataType: "json",
         success: function(data) {
+            if (loadingUrl) {
+                $(".know-content").load(rootUrl + ddecodeURIComponent(loadingUrl), function() {
+                    $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                });
+                // $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                return;
+            }
             var str = '';
             $.each(data, function(i, n) {
                 str += '<div class="know-item-event" data-url="' + n.url + '">';
                 str += '<img class="know-item-img-event" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="know-item-intro-event">' + cutstr(n.title, 120) + '<a href="' + n.url + '">   >>阅读全文</a>' + '</div>';
+                str += '<div class="know-item-intro-event">' + cutstr(n.title, 120) + '<a href="' + logPath + '?qurl=' + dencodeURIComponent(n.url) + '">   >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
             $(".know-content").html(str);
-            bindDetail();
+            // bindDetail();
         }
     });
 }
@@ -107,15 +133,22 @@ function loadStorys() {
         url: rootUrl + "/ufc-data/data/UFC-Know-Story.json",
         dataType: "json",
         success: function(data) {
+            if (loadingUrl) {
+                $(".know-content").load(rootUrl + ddecodeURIComponent(loadingUrl), function() {
+                    $(".know-content").prepend('<a class="fanhui" href="' + location.pathname + '"> < < 返回上一页</a>')
+                });
+
+                return;
+            }
             var str = '<div class="img-box">';
-            UFCKnowStory = [data[0], data[0], data[0], data[0]];
+            UFCKnowStory = data;
             loopIndex = 0;
             var arr = []
             arr.push(data[0]);
             $.each(arr, function(i, n) {
                 str += '<div class="know-item1"  data-url="' + n.url + '">';
                 str += '<img class="know-item-img2" src="' + (rootUrl + n.mainImg) + '" />';
-                str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + n.url + '">  >>阅读全文</a>' + '</div>';
+                str += '<div class="know-item-intro3"  style="background:url(' + bg + ');background-repeat:repeat">' + cutstr(n.title, 120) + '<a href="' + logPath + '?qurl=' + dencodeURIComponent(n.url) + '">   >>阅读全文</a>' + '</div>';
                 str += "</div>";
             });
             str += "</div>"
@@ -124,7 +157,7 @@ function loadStorys() {
             var rl = '<div class="leftp"><img src="' + l + '"></div><div class="rightp"><img src="' + r + '"></div>';
             $(".know-content").html(str + rl);
             loopImg();
-            bindDetail();
+            // bindDetail();
         }
     });
 }
