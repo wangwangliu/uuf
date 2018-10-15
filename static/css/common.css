@@ -60,12 +60,12 @@ body {
 
 .header-nav-block {
     position: absolute;
-    top: 4px;
-    left: -28px;
-    width: 5px;
-    height: 24px;
+    top: 7px;
+    left: -21px;
+    width: 7px;
+    height: 19px;
     background: red;
-    transform: skewX(-10deg);
+    transform: skewX(-18deg);
 }
 
 .header-nav-menu {
