@@ -68,7 +68,7 @@ function loadData(obj){
   var colors = obj.colors.split(",");
   var colorHtml = "";
   $.each(colors,function(i,n){
-    colorHtml += '<div class="detail-product-color" data-color="'+n+'">'+color(n)+'</div>';
+    colorHtml += '<div class="detail-product-color" data-color="'+n+'" style="background-color:'+color(n)+'"></div>';
   });
   $(".detail-product-color-select").html(colorHtml);
 
@@ -98,11 +98,11 @@ function bindColorEvent(){
 }
 function color(c){
   var colorObj = {};
-  colorObj.red="红色";
-  colorObj.black="黑色";
-  colorObj.blue="蓝色";
-  colorObj.white="白色";
-  colorObj.redblack="红黑";
-  colorObj.pink="粉色";
+  colorObj.red="#D20A0A";
+  colorObj.black="#19191E";
+  colorObj.blue="#14416A";
+  colorObj.white="#FAFBFD";
+  colorObj.redblack="#9E0808";
+  //colorObj.pink="pink";
   return eval('colorObj.'+c);
 }
