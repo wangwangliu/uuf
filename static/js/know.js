@@ -166,7 +166,7 @@ function loopImg() {
     var leftp = $('.leftp>img'),
         rightp = $('.rightp>img'),
         UFCKnowStoryLen = UFCKnowStory.length;
-    leftp.click(() => {
+    leftp.click(function(){
         if (loopIndex == 0) {
             loopIndex = UFCKnowStoryLen - 1;
         } else {
@@ -174,7 +174,7 @@ function loopImg() {
         }
         $(".img-box").html(tpl(UFCKnowStory, loopIndex));
     });
-    rightp.click(() => {
+    rightp.click(function() {
         if (loopIndex == (UFCKnowStoryLen - 1)) {
             loopIndex = 0;
         } else {
