@@ -21,6 +21,8 @@
 
 .product-nav-content {
     font-size: 14px;
+    height: 25px;
+    margin-top: 8px;
 }
 
 .product-nav-title:hover,
