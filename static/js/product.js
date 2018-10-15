@@ -15,7 +15,7 @@ $('.product-nav-content').click(function (event) {
   var fileName = $(this).attr("file-name");
   var dataId = $(this).attr("data-id");
   if (!dataId) {
-    $(".product-box").html("暂无符合的产品");
+    $(".product-box").html("敬请期待");
     return;
   }
   //loadProduct(fileName, dataId);
@@ -60,7 +60,7 @@ function loadProduct(fileName, pid){
       dataType: "json",
       success: function(data){
         if(data.length == 0){
-            $(".product-box").html("暂无符合的产品");
+            $(".product-box").html("敬请期待");
             return;
            }
           var str='';
