@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<%=hdmain%>/css/common.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/index.css">
     <script src="<%=hdmain%>/js/jquery.min.js"></script>
-    <script src="<%=hdmain%>/js/flv.js"></script>
+    <script src="<%=hdmain%>/js/cyberplayer.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,8 @@
             <div class="content-top">
             </div>
             <div class="content-video">
-                <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"></video>
+                <div id="dvplay"></div>
+                <!-- <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"></video> -->
             </div>
             <div class="content-preview">
                 <div class="content-preview-x">
@@ -68,16 +69,26 @@
         <%include footer.html %>
             <script>
                 var flvv = "<%=hdmain%>/images/flv.flv";
-                var player = document.getElementById('videoElement');
-                if (flvjs.isSupported()) {
-                    var flvPlayer = flvjs.createPlayer({
-                        type: 'flv',
-                        "isLive": true,
-                        url: flvv
-                    });
-                    flvPlayer.attachMediaElement(videoElement);
-                    flvPlayer.load(); //加载
-                }
+                var cwidth = $(window).width();
+                var cHeight = 712 * cwidth / 1265;
+
+                var player = cyberplayer("dvplay").setup({
+                    flashplayer: "<%=hdmain%>/js/cyberplayer.flash.swf",
+                    stretching: "uniform",
+                    file: flvv,
+                    width: cwidth,
+                    height: cHeight,
+                    autostart: true,
+                    repeat: true,
+                    volume: 60,
+                    controls: false,
+                    controlbar: {
+                        barLogo: false
+                    },
+                    ak: "e58942f3dd794e9da0ffe70d82353429"
+                });
+                var height = player.getHeight();
+                console.log(height);
             </script>
             <script src="<%=hdmain%>/js/index.js"></script>
 </body>
