@@ -11,7 +11,11 @@
     /* background-size: contain; */
 }
 
-.content-video,
+.content-video {
+    width: 100%;
+    height: auto;
+}
+
 .content-video video {
     width: 100%;
     height: auto;
@@ -27,6 +31,7 @@
     height: 800px;
     box-sizing: border-box;
     width: 100%;
+    margin-top: -6px;
 }
 
 .content-preview:before {
