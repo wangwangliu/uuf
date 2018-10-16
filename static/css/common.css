@@ -4,9 +4,17 @@ body {
     margin: 0;
 }
 
+@font-face {
+    font-family: ufcfont;
+    src: url('./o.ttf'), url('./o.eot');
+    /* IE9+ */
+}
+
 body {
     display: flex;
     flex-direction: column;
+    font-family: "Microsoft YaHei";
+    /* font-family: ufcfont; */
 }
 
 .clearfix:after {
@@ -37,6 +45,8 @@ body {
     display: flex;
     align-items: center;
 }
+
+.header-wrapper.shouye {}
 
 .header-nav-logo {
     margin-right: 25px;
@@ -107,7 +117,11 @@ body {
 }
 
 .hei {
-    background-color: #000;
+    /* background-color: #000; */
+    background: none !important;
+    height: auto;
+    width: 1080px !important;
+    margin: 10px auto;
 }
 
 .footer-content {

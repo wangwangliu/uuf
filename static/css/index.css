@@ -7,14 +7,16 @@
 .content-top {
     height: 130px;
     width: 100%;
-    background-image: url("../images/index-bg-top.jpg")
+    background: url("../images/index-bg-top.jpg") no-repeat;
+    /* background-size: contain; */
 }
 
 .content-video,
 .content-video video {
     width: 100%;
-    height: 530px;
+    height: 650px;
     object-fit: fill;
+    background: #000;
 }
 
 .content-preview {
@@ -35,7 +37,8 @@
     width: 100%;
     left: 0;
     top: 0;
-    background-image: url(../images/index-bg-bottom.jpg);
+    background: url(../images/index-bg-bottom.jpg) no-repeat;
+    background-size: cover;
     z-index: -1;
 }
 
@@ -45,9 +48,11 @@
 }
 
 .content-preview-wrapper {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 400px;
     padding: 6px;
-    margin: 0 30px;
+    /* margin: 0 30px; */
     box-sizing: border-box;
     /* transform: skewX(-10deg); */
     /* -webkit-backface-visibility: hidden;
@@ -56,6 +61,7 @@
     height: 434px;
     align-self: flex-start;
     cursor: pointer;
+    float: left;
 }
 
 .content-preview-wrapper:first-child,
@@ -65,11 +71,13 @@
 }
 
 .content-preview-wrapper:first-child {
-    margin-right: 20px;
+    /* margin-right: 20px; */
+    left: 100px;
 }
 
 .content-preview-wrapper:last-child {
-    margin-left: -20px;
+    /* margin-left: -20px; */
+    left: 650px;
 }
 
 .content-preview-block {
@@ -124,7 +132,7 @@
 .content-pics {
     text-align: center;
     padding: 45px 0 0 0;
-    background: rgba(0, 0, 0, 0.6);
+    /* background: rgba(0, 0, 0, 0.6); */
 }
 
 .content-pics-wrapper {
@@ -133,9 +141,9 @@
     width: 1080px;
     margin: 0 auto;
     position: relative;
-    background: #fff;
-    border-bottom: 2px solid #d6162a;
-    height: 430px;
+    background: none;
+    border-bottom: 6px solid #d6162a;
+    height: 440px;
 }
 
 .content-pic-1 {
@@ -191,7 +199,7 @@
 
 .pic1-x {
     position: absolute;
-    top: 0;
+    top: 8px;
     left: 0;
     width: 360px;
     height: 213px;
@@ -222,7 +230,7 @@
 
 .pic3-x {
     position: absolute;
-    top: 0;
+    top: 8px;
     left: 364px;
     width: 360px;
     height: 179px;
@@ -256,7 +264,7 @@
 
 .pic5-x {
     position: absolute;
-    top: 0;
+    top: 8px;
     right: 0;
     width: 353px;
     height: 430px;
@@ -282,7 +290,7 @@ span.content-preview-transform-revert2 {
     display: block;
     position: absolute;
     bottom: 95px;
-    left: 35px;
+    left: 55px;
     color: #fff;
     transform: skewX(-10deg);
 }
@@ -299,4 +307,10 @@ span.content-preview-transform-revert3 {
 .content-preview-wrapper:hover {
     transform: scale(1.1);
     transition: all 0.6s;
+}
+
+.content-preview-x {
+    width: 1130px;
+    margin: 0 auto;
+    position: relative;
 }
