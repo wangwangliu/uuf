@@ -319,3 +319,10 @@ span.content-preview-transform-revert3 {
     margin: 0 auto;
     position: relative;
 }
+
+#dvplay {
+    width: 100%;
+    height: auto;
+    background: url(../images/index-bg-bottom.jpg) no-repeat;
+    background-size: cover;
+}
