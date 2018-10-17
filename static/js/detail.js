@@ -62,9 +62,14 @@ function loadDetail(productId){
 function loadData(obj){
   $(".detail-product-name").text(obj.title);
   $(".detail-note").text(obj.remarks);
-  $(".detail-product-feature-list").html("<li>"+obj.features+"</li>");
   $(".detail-product-qrcode-img-jd").attr("src", rootUrl+obj.jingdongUrl);
   $(".detail-product-qrcode-img-tmall").attr("src", rootUrl+obj.tianmaoUrl);
+  console.log(obj.features)
+  var featureStr = "";
+  $.each(obj.features,  function(i, n){
+    featureStr+="<li>"+n+"</li>";
+  })
+  $(".detail-product-feature-list").html(featureStr);
   var colors = obj.colors.split(",");
   var colorHtml = "";
   $.each(colors,function(i,n){

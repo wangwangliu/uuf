@@ -72,7 +72,7 @@
 }
 
 .detail-product-feature {
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .detail-product-feature-name {
@@ -94,12 +94,12 @@
     line-height: 30px;
 }
 
-/*.detail-product-feature-list li:before {
+.detail-product-feature-list li:before {
     content: '.';
     position: absolute;
     top: -5px;
     left: -10px;
-}*/
+}
 
 .detail-product-color-select {
     display: flex;
@@ -125,6 +125,8 @@
 
 .detail-product-qrcode {
     display: flex;
+    position: absolute;
+    bottom: 50px;
 }
 
 .detail-product-qrcode-block {

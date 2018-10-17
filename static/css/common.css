@@ -33,7 +33,8 @@ body {
     position: fixed;
     width: 100%;
     height: 157px;
-    background: url('../images/top-bg.png') repeat-x;
+    /*background: url('../images/top-bg.png') repeat-x;*/
+    background-color: #FAFBFD;
     z-index: 1000;
     top: -10px
 }
@@ -50,7 +51,6 @@ body {
 
 .header-nav-logo {
     margin-right: 25px;
-    margin-bottom: 22px;
 }
 
 .header-nav {
@@ -136,6 +136,7 @@ body {
     border-bottom: 1px solid #fff;
     padding: 5px 0;
     margin-bottom: 15px;
+    font-size: 26px;
 }
 
 .footer-item-content-img {
@@ -144,7 +145,7 @@ body {
 }
 
 .footer-item-content {
-    font-size: 14px;
+    font-size: 19px;
     cursor: pointer;
 }
 
