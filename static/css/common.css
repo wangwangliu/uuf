@@ -54,7 +54,7 @@ body {
 }
 
 .header-nav {
-    font-size: 24px;
+    font-size: 17px;
     position: relative;
     margin-left: 105px;
     cursor: pointer;
@@ -70,8 +70,8 @@ body {
 
 .header-nav-block {
     position: absolute;
-    top: 7px;
-    left: -21px;
+    top: 4px;
+    left: -18px;
     width: 7px;
     height: 19px;
     background: red;
