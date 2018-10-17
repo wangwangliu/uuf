@@ -48,7 +48,7 @@ function loadVideo(fileName){
            }
           var str='', listStr='';
           $.each(data,function(i,n){
-              str+='<div class="swiper-slide"><video src="'+(rootUrl + n.url)+'" width="100%" height="100%" preload="none" controls>您的浏览器不支持video标签</video></div>';
+              str+='<div class="swiper-slide"><video src="'+(rootUrl + n.url)+'" poster="'+(rootUrl + n.mainImg)+'" width="100%" height="100%" preload="none" controls>您的浏览器不支持video标签</video></div>';
           
               listStr+='<div class="swiper-slide" style="width:180px;background-image:url('+(rootUrl + n.mainImg)+');background-size: 100% 100%"></div>';
           });
