@@ -13,10 +13,10 @@ function getUrlParms (name) {
     let str = tstr.substring(index + 1);
     let arr = str.split('&');
     let result = {};
-    arr.forEach((item) => {
-        let a = item.split('=');
+    for(var i=0;i<arr.length;i++){
+        let a = arr[i].split('=');
         result[a[0]] = a[1];
-    })
+    };
     return result[name];
 }
 
@@ -82,8 +82,10 @@ function loadData(obj){
   $.each(colors,function(i,n){
     var colorImg = eval('obj.img.'+n).split(",");
     $.each(colorImg, function(j, m){
-      imgHtml += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+')"></div>';
-      imgThumbsUrl += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+'); width:100px;background-size: 100% 100%"></div>';
+     /*  imgHtml += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+')"></div>';
+      imgThumbsUrl += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+'); width:100px;background-size: 100% 100%"></div>'; */
+      imgHtml += '<div class="swiper-slide '+n+'" style="background-image:url(../images/back/product-test.jpg)"></div>';
+      imgThumbsUrl += '<div class="swiper-slide '+n+'" style="background-image:url(../images/back/product-test.jpg); width:100px;background-size: 100% 100%"></div>';
     });
   });
 
