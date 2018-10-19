@@ -72,7 +72,7 @@
 }
 
 .detail-product-feature {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 
 .detail-product-feature-name {
@@ -126,7 +126,6 @@
 .detail-product-qrcode {
     display: flex;
     position: absolute;
-    bottom: 78px;
 }
 
 .detail-product-qrcode-block {
