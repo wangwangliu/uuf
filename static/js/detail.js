@@ -1,4 +1,5 @@
 var rootUrl = "http://120.55.41.76";
+var productJsonData;
 $(function () {
   var pathname = window.location.pathname;
   var productId = pathname.substr(pathname.length-1, pathname.length);
@@ -48,10 +49,11 @@ function loadDetail(productId){
       type:"GET",
       url:rootUrl+"/ufc-data/data/UFC-Product-All.json",
       dataType: "json",
+      async: false,
       success: function(data){
-          
           $.each(data,function(i,n){
               if (n.id == productId) {
+                productJsonData=n;
                 loadData(n);
               }
           });
@@ -64,7 +66,6 @@ function loadData(obj){
   $(".detail-note").text(obj.remarks);
   $(".detail-product-qrcode-img-jd").attr("src", rootUrl+obj.jingdongUrl);
   $(".detail-product-qrcode-img-tmall").attr("src", rootUrl+obj.tianmaoUrl);
-  console.log(obj.features)
   var featureStr = "";
   $.each(obj.features,  function(i, n){
     featureStr+="<li>"+n+"</li>";
@@ -76,33 +77,31 @@ function loadData(obj){
     colorHtml += '<div class="detail-product-color" data-color="'+n+'" style="background-color:'+color(n)+'"></div>';
   });
   $(".detail-product-color-select").html(colorHtml);
-
-  var imgUrl = rootUrl + obj.mainImg.substring(0, obj.mainImg.lastIndexOf("/"));
-  var imgHtml = "", imgThumbsUrl="";
-  $.each(colors,function(i,n){
-    var colorImg = eval('obj.img.'+n).split(",");
-    $.each(colorImg, function(j, m){
-     /*  imgHtml += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+')"></div>';
-      imgThumbsUrl += '<div class="swiper-slide '+n+'" style="background-image:url('+(imgUrl+'/'+n+'/'+m)+'); width:100px;background-size: 100% 100%"></div>'; */
-      imgHtml += '<div class="swiper-slide '+n+'" style="background-image:url(../images/back/product-test.jpg)"></div>';
-      imgThumbsUrl += '<div class="swiper-slide '+n+'" style="background-image:url(../images/back/product-test.jpg); width:100px;background-size: 100% 100%"></div>';
-    });
-  });
-
-  $(".detail-gallery-top").html('<div class="swiper-wrapper">'+imgHtml+'</div>');
-  $(".detail-gallery-thumbs").html('<div class="swiper-wrapper">'+imgThumbsUrl+'</div>');
-  $(".swiper-slide").hide();
-  $("."+colors[0]).show();
+  loadImage(colors[0]);
   bindColorEvent();
-  initImg();
 }
 function bindColorEvent(){
   $(".detail-product-color").click(function(){
     var color = $(this).attr("data-color");
-    $(".swiper-slide").hide();
-    $("."+color).show();
+    loadImage(color);
   });
 }
+
+function loadImage(color){
+  var imgUrl = rootUrl + productJsonData.mainImg.substring(0, productJsonData.mainImg.lastIndexOf("/"));
+  var imgHtml = "", imgThumbsUrl="";
+  var colorImg = eval('productJsonData.img.'+color).split(",");
+  $.each(colorImg, function(j, m){
+    /* imgHtml += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+color+'/'+m)+')"></div>';
+    imgThumbsUrl += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+color+'/'+m)+'); background-size: 100% 100%"></div>'; */
+    imgHtml += '<div class="swiper-slide" style="background-image:url(../images/back/product-test.jpg)"></div>';
+    imgThumbsUrl += '<div class="swiper-slide" style="background-image:url(../images/back/product-test.jpg);background-size: 100% 100%"></div>';
+  });
+  $(".detail-gallery-top").html('<div class="swiper-wrapper">'+imgHtml+'</div>');
+  $(".detail-gallery-thumbs").html('<div class="swiper-wrapper">'+imgThumbsUrl+'</div>');
+  initImg();
+}
+
 function color(c){
   var colorObj = {};
   colorObj.red="#D20A0A";
