@@ -89,7 +89,8 @@ function bindColorEvent(){
 
 function loadImage(color){
   var imgUrl = rootUrl + productJsonData.mainImg.substring(0, productJsonData.mainImg.lastIndexOf("/"));
-  var imgHtml = "", imgThumbsUrl="";
+  var imgHtml = '<div class="swiper-slide"><video src="../images/back/test.mp4" width="100%" height="100%" controls></video></div>', 
+      imgThumbsUrl='<div class="swiper-slide" style="width:180px;background-image:url(../images/back/quanji.png);background-size: 100% 100%"></div>';;
   var colorImg = eval('productJsonData.img.'+color).split(",");
   $.each(colorImg, function(j, m){
     /* imgHtml += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+color+'/'+m)+')"></div>';
