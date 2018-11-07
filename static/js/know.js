@@ -1,4 +1,3 @@
-var rootUrl = "http://120.55.41.76";
 var loopIndex = 0;
 var UFCKnowStory = [];
 var loadingUrl = Url.parseQuery().qurl;

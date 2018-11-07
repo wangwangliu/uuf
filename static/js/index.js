@@ -2,8 +2,6 @@ function goLinkk(URL) {
     location.href = URL;
 }
 
-var rootUrl = "http://120.55.41.76";
-
 $(function(){
 	loadAdvertising();
 })

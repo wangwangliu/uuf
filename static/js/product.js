@@ -1,5 +1,3 @@
-var rootUrl = "http://120.55.41.76";
-
 $('.product-nav-title').click(function (event) {
   var event = event || e;
   $(".product-title").text($(this).text());

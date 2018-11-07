@@ -1,4 +1,3 @@
-var rootUrl = "http://120.55.41.76";
 var productJsonData;
 $(function () {
   var pathname = window.location.pathname;

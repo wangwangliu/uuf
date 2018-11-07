@@ -83,3 +83,6 @@ function cutstr(str, len) {
 function ggoLink(url) {
     location.href = url;
 }
+
+
+var rootUrl = "http://120.27.141.218:9269";

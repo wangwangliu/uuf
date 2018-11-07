@@ -1,4 +1,3 @@
-var rootUrl = "http://120.55.41.76";
 $(function () {
   var pathname = window.location.pathname;
   var id = pathname.substr(pathname.length-1, pathname.length);
