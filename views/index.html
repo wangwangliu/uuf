@@ -20,8 +20,8 @@
             <div class="content-top">
             </div>
             <div class="content-video">
-               <!-- <div id="dvplay"></div>-->
-               <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"  src="<%=hdmain%>/media/index.mp4"></video>
+                <div id="dvplay"></div>
+              <!-- <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"  src="<%=hdmain%>/media/index.mp4"></video>-->
             </div>
             <div class="content-preview">
                 <div class="content-preview-x">
@@ -69,7 +69,7 @@
         <%include footer.html %>
             <script>
                // var flvv = "<%=hdmain%>/images/flv.flv";
-             /**  var flvv = "http://120.27.141.218:9269/ufc-data/index.flv";
+              var flvv = "http://120.27.141.218:9269/ufc-data/media/index.flv";
                 var cwidth = $(window).width();
                 var cHeight = 712 * cwidth / 1265;
 
@@ -89,7 +89,7 @@
                     ak: "e58942f3dd794e9da0ffe70d82353429"
                 });
                 var height = player.getHeight();
-                console.log(height);*/
+                console.log(height);
             </script>
             <script src="<%=hdmain%>/js/index.js"></script>
 </body>

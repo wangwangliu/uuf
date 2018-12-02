@@ -1,7 +1,7 @@
 var productJsonData;
 $(function () {
   var pathname = window.location.pathname;
-  var productId = pathname.substr(pathname.length-1, pathname.length);
+  var productId = pathname.substr(pathname.lastIndexOf("/")+1, pathname.length);
 
   $(".detail-back").attr("href", "/product/"+getUrlParms("pid"));
   loadDetail(productId);
