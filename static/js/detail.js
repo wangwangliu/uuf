@@ -70,32 +70,18 @@ function loadData(obj){
     featureStr+="<li>"+n+"</li>";
   })
   $(".detail-product-feature-list").html(featureStr);
-  var colors = obj.colors.split(",");
-  var colorHtml = "";
-  $.each(colors,function(i,n){
-    colorHtml += '<div class="detail-product-color" data-color="'+n+'" style="background-color:'+color(n)+'"></div>';
-  });
-  $(".detail-product-color-select").html(colorHtml);
-  loadImage(colors[0]);
-  bindColorEvent();
-}
-function bindColorEvent(){
-  $(".detail-product-color").click(function(){
-    var color = $(this).attr("data-color");
-    loadImage(color);
-  });
+  loadImage(obj.img);
+
 }
 
-function loadImage(color){
+function loadImage(img){
   var imgUrl = rootUrl + productJsonData.mainImg.substring(0, productJsonData.mainImg.lastIndexOf("/"));
-  var imgHtml = '<div class="swiper-slide"><video src="../images/back/test.mp4" autoplay="autoplay" width="100%" height="100%"></video></div>', 
-      imgThumbsUrl='<div class="swiper-slide" style="width:180px;background-image:url(../images/back/quanji.png);background-size: 100% 100%"></div>';;
-  var colorImg = eval('productJsonData.img.'+color).split(",");
+  var imgHtml = '', 
+      imgThumbsUrl='';
+  var colorImg = img.split(",");
   $.each(colorImg, function(j, m){
-    /* imgHtml += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+color+'/'+m)+')"></div>';
-    imgThumbsUrl += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+color+'/'+m)+'); background-size: 100% 100%"></div>'; */
-    imgHtml += '<div class="swiper-slide" style="background-image:url(../images/back/product-test.jpg)"></div>';
-    imgThumbsUrl += '<div class="swiper-slide" style="background-image:url(../images/back/product-test.jpg);background-size: 100% 100%"></div>';
+    imgHtml += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+m)+')"></div>';
+    imgThumbsUrl += '<div class="swiper-slide" style="background-image:url('+(imgUrl+'/'+m)+'); background-size: 100% 100%"></div>'; 
   });
   $(".detail-gallery-top").html('<div class="swiper-wrapper">'+imgHtml+'</div>');
   $(".detail-gallery-thumbs").html('<div class="swiper-wrapper">'+imgThumbsUrl+'</div>');

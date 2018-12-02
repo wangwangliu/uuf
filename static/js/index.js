@@ -3,6 +3,7 @@ function goLinkk(URL) {
 }
 
 $(function(){
+   // $("#videoElement").attr("src", rootUrl + "/ufc-data/media/index.mp4");
 	loadAdvertising();
 })
 
