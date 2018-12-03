@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>detail</title>
+    <title>产品详情</title>
     <link rel="stylesheet" href="<%=hdmain%>/css/swiper.min.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/common.css">
     <link rel="stylesheet" href="<%=hdmain%>/css/detail.css">
@@ -16,7 +16,7 @@
 
 <body>
     <%include header.html %>
-        <div class="content">
+        <div class="content" style="<%if(paramsid==2||paramsid==0){%>min-height:700px;<%}%><%if(paramsid==1){%>min-height:1000px;<%}%><%if(paramsid==3){%>min-height:1000px;<%}%>background-image:url(<%=hdmain%>/images/video-bg.png);background-position:center center;background-repeat:no-repeat;">
             <div class="detail-wrapper">
                 <div class="detail-box">
                     <a class="detail-back" href="product.html">

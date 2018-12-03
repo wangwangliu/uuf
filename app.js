@@ -79,7 +79,7 @@ const routes = [{
         data: {
             act: 1,
             data: {
-                title: ['']
+                title: ['产品详情']
             }
         }
     },
