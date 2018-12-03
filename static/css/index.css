@@ -285,18 +285,18 @@
 .content-preview-wrapper span {
     display: block;
     position: absolute;
-    bottom: 10px;
-    left: 55px;
+    bottom: -4px;
+    left: 29px;
     color: #fff;
     transform: skewX(-10deg);
-    font-size: 18px
+    font-size: 42px;
 }
 
 span.content-preview-transform-revert2 {
     display: block;
     position: absolute;
-    bottom: 95px;
-    left: 55px;
+    bottom: 82px;
+    left: 29px;
     color: #fff;
     transform: skewX(-10deg);
 }
@@ -304,8 +304,8 @@ span.content-preview-transform-revert2 {
 span.content-preview-transform-revert3 {
     display: block;
     position: absolute;
-    bottom: 10px;
-    left: 35px;
+    bottom: -4px;
+    left: 18px;
     color: #fff;
     transform: skewX(-10deg);
 }
