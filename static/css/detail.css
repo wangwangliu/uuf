@@ -125,7 +125,7 @@
 
 .detail-product-qrcode {
     display: flex;
-    position: absolute;
+ /*   position: absolute; */
 }
 
 .detail-product-qrcode-block {
