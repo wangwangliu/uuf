@@ -16,7 +16,7 @@ app.set('view engine', 'html');
 // app.engine('.html', ejs.__express);
 // app.set('view engine', 'html');
 
-const api = `http://120.55.41.76/ufc-data/data/`;
+const api = `http://120.27.141.218:9269/ufc-data/data/`;
 
 var UFCProductGloves = `${api}UFC-Product-Gloves.json`;
 
