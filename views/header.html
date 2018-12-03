@@ -1,6 +1,19 @@
 <script>
     try {
-        document.getElementsByTagName('body')[0].style.zoom = 0.75
+        var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+
+        function _mime(option, value) {
+            var mimeTypes = navigator.mimeTypes;
+            for (var mt in mimeTypes) {
+                if (mimeTypes[mt][option] == value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (!is360) {
+            document.getElementsByTagName('body')[0].style.zoom = 0.75
+        }
     } catch (error) {
 
     }
