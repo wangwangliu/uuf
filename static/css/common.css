@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: "Microsoft YaHei";
+    overflow-x: hidden;
     /* font-family: ufcfont; */
 }
 
