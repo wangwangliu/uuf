@@ -1,7 +1,6 @@
 <script>
-    try {
+try {
         var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-
         function _mime(option, value) {
             var mimeTypes = navigator.mimeTypes;
             for (var mt in mimeTypes) {
@@ -11,11 +10,10 @@
             }
             return false;
         }
-        if (!is360) {
+        if (!is360 && $(window).width()<1400) {
             document.getElementsByTagName('body')[0].style.zoom = 0.75
         }
     } catch (error) {
-
     }
 </script>
 <div class="header">
