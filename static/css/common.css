@@ -109,7 +109,7 @@ body {
 .content {
     min-height: calc(100vh - 476px);
     margin-top: 180px;
-    margin-bottom: 90px;
+   /** margin-bottom: 90px;*/
 }
 
 .footer {
