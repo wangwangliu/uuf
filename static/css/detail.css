@@ -30,8 +30,8 @@
 
 .detail-gallery-top {
     width: 529px;
-    height: 529px;
-    border: solid 1px #f4f4f4;
+    height: 530px;
+    border: solid 1px #000;
     background: #f4f4f4
 }
 
@@ -57,11 +57,12 @@
     box-sizing: border-box;
     margin-right: 10px;
     cursor: pointer;
+    border: 1px solid #666;
 }
 
 .detail-gallery-thumbs .swiper-slide-thumb-active {
     background-color: white;
-    border-color: black;
+    border: 1px solid #000;
 }
 
 .detail-note {

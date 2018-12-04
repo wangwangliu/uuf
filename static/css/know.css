@@ -236,13 +236,13 @@
 }
 
 .know-item-event:hover {
-    transform: scale(1.2);
-    transition: all 0.6s;
+    transform: scale(1.05);
+    transition: all 0.2s;
 }
 
 .know-item:hover {
-    transform: scale(1.2);
-    transition: all 0.6s;
+    transform: scale(1.05);
+    transition: all 0.2s;
 }
 
 
