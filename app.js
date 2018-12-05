@@ -87,7 +87,7 @@ const routes = [{
         path: '/qa/:id?',
         html: 'qa',
         data: {
-            act: 0,
+            act: 5,
             data: {
                 title: ['电商常见问题']
             }
@@ -97,7 +97,7 @@ const routes = [{
         path: '/channel/:id?',
         html: 'channel',
         data: {
-            act: 0,
+            act: 5,
             data: {
                 title: ['购买渠道']
             }
