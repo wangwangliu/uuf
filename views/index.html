@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="<%=hdmain%>/css/index.css">
     <script src="<%=hdmain%>/js/jquery.min.js"></script>
     <script src="<%=hdmain%>/js/cyberplayer.js"></script>
+    <style>
+        #dvplayie {
+            width: 0;
+            height: 0;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +28,9 @@
         </div>
         <div class="content-video">
             <div id="dvplay"></div>
+            <video id="dvplayie" src="" controls="controls">
+                您的浏览器不支持 video 标签。
+            </video>
             <!-- <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"  src="<%=hdmain%>/media/index.mp4"></video>-->
         </div>
         <div class="content-preview">
@@ -83,23 +93,34 @@
                 }
                 var cwidth = $(window).width();
                 var cHeight = 712 * cwidth / 1265;
+                var height = 0;
+                if (!isIE()) {
+                    var player = cyberplayer("dvplay").setup({
+                        flashplayer: "<%=hdmain%>/js/cyberplayer.flash.swf",
+                        stretching: "uniform",
+                        file: flvv,
+                        width: cwidth,
+                        height: cHeight,
+                        autostart: true,
+                        repeat: true,
+                        volume: 60,
+                        controls: false,
+                        controlbar: {
+                            barLogo: false
+                        },
+                        ak: "e58942f3dd794e9da0ffe70d82353429"
 
-                var player = cyberplayer("dvplay").setup({
-                    flashplayer: "<%=hdmain%>/js/cyberplayer.flash.swf",
-                    stretching: "uniform",
-                    file: flvv,
-                    width: cwidth,
-                    height: cHeight,
-                    autostart: true,
-                    repeat: true,
-                    volume: 60,
-                    controls: false,
-                    controlbar: {
-                        barLogo: false
-                    },
-                    ak: "e58942f3dd794e9da0ffe70d82353429"
-                });
-                var height = player.getHeight();
+                    });
+                    height = player.getHeight()
+                } else {
+                    $("#dvplayie").css({
+                        width: cwidth + 'px,',
+                        height: cHeight + 'px'
+                    })
+                    document.getElementById("v1").src = flvv;
+                    height = cHeight;
+                }
+
                 console.log(height);
             </script>
             <script src="<%=hdmain%>/js/index.js"></script>
