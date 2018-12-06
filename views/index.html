@@ -68,9 +68,11 @@
         </div>
         <%include footer.html %>
             <script>
-                // var flvv = "<%=hdmain%>/images/flv.flv";
-                var flvv = "http://120.27.141.218:9269/ufc-data/media/index.flv";
-                var cwidth = ($(window).width() * 4) / 3;
+                 var flvv = "<%=hdmain%>/media/index.flv";
+               // var flvv = "http://120.27.141.218:9269/ufc-data/media/index.flv";
+                //var cwidth = ($(window).width() * 4) / 3;
+
+               var cwidth = $(window).width();
                 var cHeight = 712 * cwidth / 1265;
 
                 var player = cyberplayer("dvplay").setup({
