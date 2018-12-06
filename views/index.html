@@ -17,43 +17,43 @@
 <body>
     <%include header.html %>
         <div class="content" style="margin-top:78px;"></div>
-            <div class="content-top">
-            </div>
-            <div class="content-video">
-                <div id="dvplay"></div>
-                <!-- <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"  src="<%=hdmain%>/media/index.mp4"></video>-->
-            </div>
-            <div class="content-preview">
-                <div class="content-preview-x">
-                    <div class="content-preview-wrapper" onclick='goLinkk("/product/2")'>
-                        <img class="content-preview-background-img ti1" src="<%=hdmain%>/images/huju.png" />
+        <div class="content-top">
+        </div>
+        <div class="content-video">
+            <div id="dvplay"></div>
+            <!-- <video name="videoElement" id="videoElement" autoplay="autoplay" loop="loop"  src="<%=hdmain%>/media/index.mp4"></video>-->
+        </div>
+        <div class="content-preview">
+            <div class="content-preview-x">
+                <div class="content-preview-wrapper" onclick='goLinkk("/product/2")'>
+                    <img class="content-preview-background-img ti1" src="<%=hdmain%>/images/huju.png" />
 
-                        <span class="content-preview-transform-revert1">
+                    <span class="content-preview-transform-revert1">
                                 护具
                             </span>
 
-                    </div>
-                    <div class="content-preview-wrapper" onclick='goLinkk("/product/1")'>
-                        <img class="content-preview-background-img ti2" src="<%=hdmain%>/images/quanji.png" />
+                </div>
+                <div class="content-preview-wrapper" onclick='goLinkk("/product/1")'>
+                    <img class="content-preview-background-img ti2" src="<%=hdmain%>/images/quanji.png" />
 
-                        <span class="content-preview-transform-revert2">
+                    <span class="content-preview-transform-revert2">
                                 拳套
                             </span>
 
-                    </div>
-                    <div class="content-preview-wrapper" onclick='goLinkk("/product/3")'>
-                        <img class="content-preview-background-img ti3" src="<%=hdmain%>/images/jianshen.png" />
+                </div>
+                <div class="content-preview-wrapper" onclick='goLinkk("/product/3")'>
+                    <img class="content-preview-background-img ti3" src="<%=hdmain%>/images/jianshen.png" />
 
-                        <span class="content-preview-transform-revert3">
+                    <span class="content-preview-transform-revert3">
                                 健身器材
                             </span>
-                    </div>
                 </div>
             </div>
-            <div class="content-pics clearfix">
-                <div class="content-pics-wrapper">
-                        <img class="content-pic" src="<%=hdmain%>/images/12345.jpg" alt="">
-                    <!-- <div class="pic1-x" onclick='goLinkk("/pdetail/8?pid=1")'><img src="<%=hdmain%>/images/1.png" /></div>
+        </div>
+        <div class="content-pics clearfix">
+            <div class="content-pics-wrapper">
+                <img class="content-pic" src="<%=hdmain%>/images/12345.jpg" alt="">
+                <!-- <div class="pic1-x" onclick='goLinkk("/pdetail/8?pid=1")'><img src="<%=hdmain%>/images/1.png" /></div>
                     <div class="pic2-x" onclick='goLinkk("/pdetail/1?pid=1")'><img src="<%=hdmain%>/images/2.png" /></div>
                     <div class="pic3-x" onclick='goLinkk("/pdetail/4?pid=1")'><img src="<%=hdmain%>/images/3.png" /></div>
                     <div class="pic4-x" onclick='goLinkk("/pdetail/3?pid=1")'><img src="<%=hdmain%>/images/4.png" /></div>
@@ -64,16 +64,24 @@
                     <img class="content-pic-4" src="<%=hdmain%>/images/index-pic-4.jpg" alt="">
                     <img class="content-pic-5" src="<%=hdmain%>/images/index-pic-5.jpg" alt="">
                     <img class="content-pic-6" src="<%=hdmain%>/images/index-pic-6.jpg" alt=""> -->
-                </div>
             </div>
+        </div>
         </div>
         <%include footer.html %>
             <script>
                 // var flvv = "<%=hdmain%>/media/index.flv";
-                var flvv = "http://120.27.141.218:9269/ufc-data/media/index.mp4";
+                function isIE() {
+                    if (!!window.ActiveXObject || "ActiveXObject" in window)
+                        return true;
+                    else
+                        return false;
+                }
+                var flvv = "http://120.27.141.218:9269/ufc-data/media/index.flv";
                 //var cwidth = ($(window).width() * 4) / 3;
-
-               var cwidth = $(window).width();
+                if (isIE()) {
+                    flvv = "http://120.27.141.218:9269/ufc-data/media/index.mp4";
+                }
+                var cwidth = $(window).width();
                 var cHeight = 712 * cwidth / 1265;
 
                 var player = cyberplayer("dvplay").setup({
@@ -85,7 +93,7 @@
                     autostart: true,
                     repeat: true,
                     volume: 60,
-                    controls: true,
+                    controls: false,
                     controlbar: {
                         barLogo: false
                     },
