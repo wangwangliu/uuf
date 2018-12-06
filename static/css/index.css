@@ -318,7 +318,7 @@ span.content-preview-transform-revert3 {
 
 .content-preview-x {
     width: 1130px;
-    margin: 0 auto;
+   /** margin: 0 auto;*/
     position: relative;
 }
 
