@@ -146,10 +146,10 @@
     display: block;
     clear: both;
     width: 1080px;
-    margin: 40px auto auto auto;
+    margin: 45px auto auto auto;
     position: relative;
     background: none;
-    border-bottom: 6px solid #d6162a;
+   /** border-bottom: 6px solid #d6162a;*/
     height: 440px;
 }
 
