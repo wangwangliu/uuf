@@ -86,15 +86,14 @@
                     else
                         return false;
                 }
-                var flvv = "http://120.27.141.218:9269/ufc-data/media/index.flv";
+                var flvv = rootUrl + "/ufc-data/media/index.flv";
                 //var cwidth = ($(window).width() * 4) / 3;
                 if (isIE()) {
-                    flvv = "http://120.27.141.218:9269/ufc-data/media/index.mp4";
+                    flvv = rootUrl + "/ufc-data/media/index.mp4";
                 }
                 var cwidth = $(window).width();
                 var cHeight = 712 * cwidth / 1265;
                 var height = 0;
-                if (!isIE()) {
                     var player = cyberplayer("dvplay").setup({
                         flashplayer: "<%=hdmain%>/js/cyberplayer.flash.swf",
                         stretching: "uniform",
@@ -108,21 +107,16 @@
                         controlbar: {
                             barLogo: false
                         },
+                        imageAdvs : {
+                                start : {
+                                    image : "<%=hdmain%>/images/index_Moment.jpg",
+                                    time : 10
+                                }
+                            },
                         ak: "e58942f3dd794e9da0ffe70d82353429"
 
                     });
-                    height = player.getHeight()
-                } else {
-                    $("#dvplayie").css({
-                        width: cwidth + 'px,',
-                        height: cHeight + 'px'
-                    })
-                    document.getElementById("dvplayie").src = flvv;
-                    document.getElementById("dvplayie").play();
-                    height = cHeight;
-                    
-                }
-
+                    height = player.getHeight();
                 console.log(height);
             </script>
             <script src="<%=hdmain%>/js/index.js"></script>
